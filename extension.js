@@ -1,17 +1,17 @@
 const vscode = require('vscode');
 
+/**
+ * 插件被激活时触发，所有代码总入口
+ * @param {*} context 插件上下文
+ */
+exports.activate = function(context) {
+	console.log('code-hinting 插件激活');
+	require('./src/completion')(context); // 自动补全
+};
 
 /**
- * @param {vscode.ExtensionContext} context
+ * 插件被释放时触发
  */
-function activate(context) {
-
-}
-
-// this method is called when your extension is deactivated
-function deactivate() {}
-
-module.exports = {
-	activate,
-	deactivate
-}
+exports.deactivate = function() {
+	console.log('您的扩展“vscode-plugin-demo”已被释放！')
+};
